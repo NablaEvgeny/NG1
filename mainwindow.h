@@ -17,7 +17,7 @@ class MainWindow;
 
 class SettingsDialog;
 
-class SimplePlot;
+class GeologyPlot;
 
 class MainWindow : public QMainWindow
 {
@@ -52,8 +52,8 @@ private:
     QMenu *helpMenu;
     QPlainTextEdit *textEdit;
 
-    SimplePlot *plot0;
-    SimplePlot *plot1;
+    GeologyPlot *plot0;
+    GeologyPlot *plot1;
     QPushButton *rec0;
     QPushButton *rec1;
 

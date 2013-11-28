@@ -17,11 +17,11 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     settingsdialog.cpp \
-    simpleplot.cpp
+    geologyplot.cpp
 
 HEADERS  += mainwindow.h \
     settingsdialog.h \
-    simpleplot.h
+    geologyplot.h
 
 FORMS    += mainwindow.ui \
     settingsdialog.ui

@@ -1,4 +1,4 @@
-#include "simpleplot.h"
+#include "geologyplot.h"
 
 #include <qapplication.h>
 #include <qwt_plot.h>
@@ -37,7 +37,7 @@ public:
 };
 
 
-SimplePlot::SimplePlot( QWidget *parent ):
+GeologyPlot::GeologyPlot( QWidget *parent ):
     QwtPlot( parent )
 {
     counter = 0;
@@ -75,7 +75,7 @@ SimplePlot::SimplePlot( QWidget *parent ):
     setData();
 }
 
-void SimplePlot::setData()
+void GeologyPlot::setData()
 {
     const int n = 1000;
     double h = 2.0/n;
@@ -86,34 +86,27 @@ void SimplePlot::setData()
         y[i] = qAbs(x[i]);
     }
 }
-SimplePlot::~SimplePlot()
+GeologyPlot::~GeologyPlot()
 {
     delete painter;
     delete curve;
 }
 
-void SimplePlot::timerHandle()
+void GeologyPlot::timerHandle()
 {
     QPointF newPoint = QPointF( this->x[this->counter],this->y[this->counter]);
     this->counter++;
-    SimplePlot::appendGraphPoint(newPoint);
-
-    if (this->counter == 1)
-    {
-        QMessageBox msgBox;
-        msgBox.setText("1213");
-        msgBox.exec();
-    }
+    GeologyPlot::appendGraphPoint(newPoint);
 }
 
-void SimplePlot::appendGraphPoint(QPointF point)
+void GeologyPlot::appendGraphPoint(QPointF point)
 {
     CurveData *data = static_cast<CurveData *> ( curve->data());
     data->appendDataPoint(point);
     painter->drawSeries(curve, 0, data->size() - 1);
 }
 
-void SimplePlot::drawPlot( )
+void GeologyPlot::drawPlot( )
 {
 
     points << QPointF( 0.0, 4.4 ) << QPointF( 1.0, 3.0 )
@@ -128,17 +121,17 @@ void SimplePlot::drawPlot( )
     return ;
 }
 
-void SimplePlot::SetTmpfile(const QString &f)
+void GeologyPlot::SetTmpfile(const QString &f)
 {
    tmpfile = f;
    file.setFileName(tmpfile);
 }
-QString SimplePlot::GetTmpfile()
+QString GeologyPlot::GetTmpfile()
 {
    return tmpfile;
 }
 
-void SimplePlot::resizeEvent( QResizeEvent *event )
+void GeologyPlot::resizeEvent( QResizeEvent *event )
 {
     QwtPlot::resizeEvent( event );
 

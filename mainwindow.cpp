@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "settingsdialog.h"
-#include "simpleplot.h"
+#include "geologyplot.h"
 
 #include <QMessageBox>
 #include <QtSerialPort/QSerialPort>
@@ -110,7 +110,7 @@ void MainWindow::createCentralWidget()
     textEdit->setSizePolicy(QSizePolicy::Expanding,
           QSizePolicy::Expanding);
 
-    plot0 = new SimplePlot(this);
+    plot0 = new GeologyPlot(this);
     QString f0 = "tmpfile0.dat";
     plot0->SetTmpfile(f0);
 

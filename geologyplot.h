@@ -13,11 +13,11 @@ class SimplePlot;
 }
 
 
-class SimplePlot : public QwtPlot
+class GeologyPlot : public QwtPlot
 {
 public:
-    SimplePlot( QWidget *parent = NULL );
-    ~SimplePlot();
+    GeologyPlot( QWidget *parent = NULL );
+    ~GeologyPlot();
 
     void SetTmpfile(const QString &f);
     QString GetTmpfile();
